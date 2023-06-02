@@ -30,3 +30,5 @@ print("Hello from the linkTest.lua file")
 print("Hello from the main.lua file")
 -- You can use the main file for staging and move other code into the included files
 ```
+
+You can also find my previous C++ implementation of the linker [here](https://github.com/DiSaber/Lua-Linker)
