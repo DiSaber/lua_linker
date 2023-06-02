@@ -1,4 +1,4 @@
-use std::fs::{self};
+use std::fs;
 
 pub fn link() -> bool {
     let mut main_file = match fs::read_to_string("./main.lua") {
