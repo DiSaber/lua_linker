@@ -61,7 +61,7 @@ pub fn link() -> bool {
 
         println!("Linking -> {}", file_name);
 
-        main_file = main_file.replacen(&include_statement, &linking_file, 1)
+        main_file = main_file.replace(&include_statement, &linking_file)
     }
 
     match fs::write("./final.lua", main_file) {
