@@ -3,12 +3,18 @@ use std::fs;
 pub fn link() -> bool {
     let mut main_file = match fs::read_to_string("./main.lua") {
         Ok(main_file) => main_file,
-        Err(_) => return false,
+        Err(_) => {
+            println!("Failed to read 'main.lua'");
+            return false;
+        }
     };
 
     let directory = match fs::read_dir("./") {
         Ok(directory) => directory,
-        Err(_) => return false,
+        Err(_) => {
+            println!("Failed to read the current directory");
+            return false;
+        }
     };
 
     for entry in directory {
@@ -47,7 +53,10 @@ pub fn link() -> bool {
 
         let linking_file = match fs::read_to_string(&path) {
             Ok(linking_file) => linking_file,
-            Err(_) => continue,
+            Err(_) => {
+                println!("Failed to read '{}'", file_name);
+                continue;
+            }
         };
 
         println!("Linking -> {}", file_name);
@@ -57,6 +66,9 @@ pub fn link() -> bool {
 
     match fs::write("./final.lua", main_file) {
         Ok(_) => true,
-        Err(_) => false,
+        Err(_) => {
+            println!("Failed to write to 'final.lua'");
+            false
+        }
     }
 }

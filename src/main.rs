@@ -4,11 +4,11 @@ pub mod linker;
 
 fn main() {
     println!(
-        "File Linking {}",
+        "File linking {}!",
         if linker::link() {
-            "Completed"
+            "completed"
         } else {
-            "Failed"
+            "failed"
         }
     );
     stdin().read(&mut [0]).unwrap();
